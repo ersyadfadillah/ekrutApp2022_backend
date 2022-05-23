@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\ParkirController;
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,17 +15,20 @@ use App\Http\Controllers\PostsController;
 |
 */
 
-Route::get('/', function (){
-    return view('welcome');
-});
+// Route::get('/', function (){
+//     return view('welcome');
+// });
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/', [DashboardController::class, 'index']);
 
-Route::get('/posts', [DashboardController::class, 'posts']);
-Route::get('/posts/create', [PostsController::class, 'showCreatePosts']);
-Route::post('/posts/create', [PostsController::class, 'store'])->name('posts.store');
+// Route::get('/posts', [DashboardController::class, 'posts']);
+// Route::get('/posts/create', [PostsController::class, 'showCreatePosts']);
+// Route::post('/posts/create', [PostsController::class, 'store'])->name('posts.store');
 
+Route::get('/parkir', [ParkirController::class, 'index']);
 
+Route::get('/parkir/masuk', [ParkirController::class, 'masuk']);
+Route::post('/parkir/masuk', [ParkirController::class, 'post_masuk'])->name('parkir.masuk');
 
-Route::get('/category', [DashboardController::class, 'category']);
-Route::get('/users', [DashboardController::class, 'users']);
+Route::post('/parkir/keluar/cari', [ParkirController::class, 'post_keluar'])->name('parkir.keluar.cari');
+Route::get('/parkir/keluar', [ParkirController::class, 'keluar']);
