@@ -31,7 +31,22 @@ class ParkirController extends Controller
             ->select('parkirs.*', 'tipe_kendaraan.tipe_kendaraan', 'tarif.tarif')
             ->where('status', "=", 1)
             ->get();
+
+        $data_parkir = [];
         // dd($data_parkir);
+        return view('Parkirs.Laporan.index', compact('data_parkir'));
+    }
+
+    public function laporan_cari(Request $req)
+    {
+        $data_parkir = DB::table('parkirs')
+            ->join('tipe_kendaraan', 'tipe_kendaraan.id', '=', 'parkirs.id_tipe_kendaraan')
+            ->join('tarif', 'tarif.id_tipe_kendaraan', '=', 'tipe_kendaraan.id')
+            ->select('parkirs.*', 'tipe_kendaraan.tipe_kendaraan', 'tarif.tarif')
+            ->where('status', "=", 1)
+            ->where('jam_masuk', ">=", $req->tgl_awal)
+            ->where('jam_masuk', "<=", $req->tgl_akhir)
+            ->get();
         return view('Parkirs.Laporan.index', compact('data_parkir'));
     }
 
