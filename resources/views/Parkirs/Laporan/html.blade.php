@@ -1,6 +1,43 @@
 <section class="content">
     <div class="container-fluid">
       <div class="card">
+        <div class="col-md-6">
+          <!-- general form elements -->
+          <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Cari Data Parkir</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" id="form_post" method="post">
+              @csrf
+                <div class="card-body">                  
+                  <div class="form-group">                    
+                    <label for="kode_unik">Periode</label>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <input type="date" class="form-control" id="kode_unik" name="kode_unik" required>
+                      </div>
+                      <div class="col-sm-1">
+                        <label for="" class="text-center">s.d</label>
+                      </div>
+                      <div class="col-sm-3">
+                        <input type="date" class="form-control" id="kode_unik" name="kode_unik" required>
+                      </div>
+                      <div class="col-sm-2">
+                        <button type="submit" id="cari_laporan" class="btn btn-primary">Lihat Laporan</button>
+                      </div>
+                      <div class="col-sm-2">
+                        <button type="submit" id="export_laporan" class="btn btn-success">Export Laporan</button>
+                      </div>
+                    </div>
+                  </div>               
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+        </div>
+        <div class="col-12">
               <div class="card-header">
                 <h3 class="card-title">Parkir List</h3>
               </div>
@@ -20,11 +57,11 @@
                     <th>Tarif / jam (Rp.)</th>
                     <th>Status</th>
                     <th>Waktu Masuk</th>
-                    {{-- <th>Waktu Keluar</th>
+                    <th>Waktu Keluar</th>
                     <th>Total Jam</th>
-                    <th>Total Tarif (Rp.)</th> --}}
+                    <th>Total Tarif (Rp.)</th>
                     <th>Last Updated By</th>
-                    <th>Action</th>
+                    {{-- <th>Action</th> --}}
                   </tr>
                   </thead>
                   <tbody class="text-center">
@@ -42,15 +79,15 @@
                             Parkir Selesai 
                           @endif</td>
                         <td>{{ Carbon\Carbon::parse($data_parkir_row->jam_masuk)->format('d-m-Y H:i:s') }}</td>
-                        {{-- <td>{{ $data_parkir_row->jam_keluar!='' ? Carbon\Carbon::parse($data_parkir_row->jam_keluar)->format('d-m-Y H:i:s') : '-' }}</td>
-                        {{-- <td>{{ $data_parkir_row->total_jam!='' ? $data_parkir_row->total_jam : 'Perhitungan berjalan' }}</td>
-                        <td>{{ $data_parkir_row->total_tarif }}</td> --}} --}}
+                        <td>{{ $data_parkir_row->jam_keluar!='' ? Carbon\Carbon::parse($data_parkir_row->jam_keluar)->format('d-m-Y H:i:s') : '-' }}</td>
+                        <td>{{ $data_parkir_row->total_jam!='' ? $data_parkir_row->total_jam : 'Perhitungan berjalan' }}</td>
+                        <td>{{ $data_parkir_row->total_tarif }}</td>
                         <td>{{ Carbon\Carbon::parse($data_parkir_row->updated_at)->format('d-m-Y H:i:s') }}</td>
-                        <td>
+                        {{-- <td>
                           @if($data_parkir_row->status==0)
                             <button type="button" class="btn btn-md btn-danger">Delete</button>
                           @endif
-                        </td>
+                        </td> --}}
                       </tr>                       
                     @endforeach
                   </tbody>               
@@ -59,6 +96,7 @@
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
+        </div>
     </div>
     <!-- /.container-fluid -->
 </section>

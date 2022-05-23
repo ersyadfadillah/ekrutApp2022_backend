@@ -26,9 +26,11 @@ Route::get('/', [DashboardController::class, 'index']);
 // Route::post('/posts/create', [PostsController::class, 'store'])->name('posts.store');
 
 Route::get('/parkir', [ParkirController::class, 'index']);
+Route::get('/parkir/laporan', [ParkirController::class, 'laporan']);
 
 Route::get('/parkir/masuk', [ParkirController::class, 'masuk']);
 Route::post('/parkir/masuk', [ParkirController::class, 'post_masuk'])->name('parkir.masuk');
 
-Route::post('/parkir/keluar/cari', [ParkirController::class, 'post_keluar'])->name('parkir.keluar.cari');
+Route::post('/parkir/keluar', [ParkirController::class, 'post_keluar'])->name('parkir.keluar');
 Route::get('/parkir/keluar', [ParkirController::class, 'keluar']);
+Route::post('/parkir/keluar2/{id}', [ParkirController::class, 'post_keluar2'])->name('parkir.keluar2');

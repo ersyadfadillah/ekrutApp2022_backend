@@ -75,6 +75,9 @@
                               <!-- textarea -->
                               <div class="form-group">
                                 <label>Tanggal Keluar</label>
+                                <input type="hidden" class="form-control" id="id_parkir" value="0">
+                                <input type="hidden" class="form-control" id="status" name="status" value="1">
+                                <input type="hidden" class="form-control" id="id_updated" name="id_updated" value="1">
                                 <input type="hidden" class="form-control" id="jam_keluar" name="jam_keluar" value="{{ date('Y-m-d H:i:s') }}">
                                 <input type="text" class="form-control" id="vtgl_keluar" readonly>
                               </div>

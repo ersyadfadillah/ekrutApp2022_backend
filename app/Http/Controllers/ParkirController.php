@@ -16,9 +16,23 @@ class ParkirController extends Controller
             ->join('tipe_kendaraan', 'tipe_kendaraan.id', '=', 'parkirs.id_tipe_kendaraan')
             ->join('tarif', 'tarif.id_tipe_kendaraan', '=', 'tipe_kendaraan.id')
             ->select('parkirs.*', 'tipe_kendaraan.tipe_kendaraan', 'tarif.tarif')
+            ->where('status', "=", 0)
             ->get();
         // dd($data_parkir);
         return view('Parkirs.index', compact('data_parkir'));
+    }
+
+    public function laporan()
+    {
+        // $data_parkir = Parkir::all();
+        $data_parkir = DB::table('parkirs')
+            ->join('tipe_kendaraan', 'tipe_kendaraan.id', '=', 'parkirs.id_tipe_kendaraan')
+            ->join('tarif', 'tarif.id_tipe_kendaraan', '=', 'tipe_kendaraan.id')
+            ->select('parkirs.*', 'tipe_kendaraan.tipe_kendaraan', 'tarif.tarif')
+            ->where('status', "=", 1)
+            ->get();
+        // dd($data_parkir);
+        return view('Parkirs.Laporan.index', compact('data_parkir'));
     }
 
     public function masuk()
@@ -61,5 +75,21 @@ class ParkirController extends Controller
             'status' => !empty($data_parkir) ? true : false,
             'data' => $data_parkir
         ]);
+    }
+
+    public function post_keluar2(Request $req, $id)
+    {
+        DB::beginTransaction();
+        try {
+            $save = Parkir::find($id);
+            $save->update($req->all());
+            DB::commit();
+            $status = true;
+        } catch (Exception $error) {
+            DB::rollback();
+            $status = false;
+        }
+
+        return response()->json($status);
     }
 }

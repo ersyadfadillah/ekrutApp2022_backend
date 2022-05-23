@@ -1,6 +1,6 @@
 @extends('layouts.backend-dashboard.app')
-@section('title','Parkir')
-@section('breadcrumb','Parkir')
+@section('title','Parkir Monitoring')
+@section('breadcrumb','Parkir / Monitoring')
 @section('content')
   @include('Parkirs.html')
 @endsection

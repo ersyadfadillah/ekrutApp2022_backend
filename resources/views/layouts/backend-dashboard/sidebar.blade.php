@@ -25,7 +25,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a id="dashboard"  href="/dashboard" class="nav-link">
+            <a id="dashboard"  href="/" class="nav-link">
               <i class="nav-icon fas fa-th text-primary"></i>
               <p>
                 Dashboard              
@@ -33,7 +33,7 @@
             </a>           
           </li>
           <li class="nav-item">
-            <a id="parkir" href="/parkir/masuk" class="nav-link">
+            <a id="menu_parkir_masuk" href="/parkir/masuk" class="nav-link">
               <i class="nav-icon far fa-circle text-success"></i>
               <p>
                 Parkir Masuk             
@@ -41,7 +41,7 @@
             </a>
           </li> 
           <li class="nav-item">
-            <a id="parkir" href="/parkir/keluar" class="nav-link">
+            <a id="menu_parkir_keluar" href="/parkir/keluar" class="nav-link">
               <i class="nav-icon far fa-circle text-danger"></i>
               <p>
                 Parkir Keluar             
@@ -49,10 +49,18 @@
             </a>
           </li> 
           <li class="nav-item">
-            <a id="parkir" href="/parkir" class="nav-link">
+            <a id="menu_parkir_monitoring" href="/parkir" class="nav-link">
               <i class="nav-icon fas fa-calendar-alt text-warning"></i>
               <p>
                 Monitoring Parkir
+              </p>
+            </a>
+          </li> 
+          <li class="nav-item">
+            <a id="menu_parkir_laporan" href="/parkir/laporan" class="nav-link">
+              <i class="nav-icon fas fa-calendar-alt text-success"></i>
+              <p>
+                Laporan Parkir
               </p>
             </a>
           </li> 
