@@ -9,20 +9,20 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" id="form_post" method="post">
+              <form role="form" id="form_post" method="post" action="/parkir/laporan" enctype="multipart/form-data">
               @csrf
                 <div class="card-body">                  
                   <div class="form-group">                    
                     <label for="kode_unik">Periode</label>
                     <div class="row">
                       <div class="col-sm-3">
-                        <input type="date" class="form-control" id="kode_unik" name="kode_unik" required>
+                        <input type="date" class="form-control" id="tgl_awal" name="tgl_awal" required>
                       </div>
                       <div class="col-sm-1">
                         <label for="" class="text-center">s.d</label>
                       </div>
                       <div class="col-sm-3">
-                        <input type="date" class="form-control" id="kode_unik" name="kode_unik" required>
+                        <input type="date" class="form-control" id="tgl_akhir" name="tgl_akhir" required>
                       </div>
                       <div class="col-sm-2">
                         <button type="submit" id="cari_laporan" class="btn btn-primary">Lihat Laporan</button>

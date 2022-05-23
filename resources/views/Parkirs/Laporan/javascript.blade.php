@@ -1,5 +1,5 @@
 <script>
   $(document).ready(function (){
-      $('#posts').addClass('active');
+      $('#menu_parkir_laporan').addClass('active');
   });  
 </script>

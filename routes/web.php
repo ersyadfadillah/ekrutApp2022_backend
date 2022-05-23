@@ -27,6 +27,7 @@ Route::get('/', [DashboardController::class, 'index']);
 
 Route::get('/parkir', [ParkirController::class, 'index']);
 Route::get('/parkir/laporan', [ParkirController::class, 'laporan']);
+Route::post('/parkir/laporan', [ParkirController::class, 'laporan_cari']);
 
 Route::get('/parkir/masuk', [ParkirController::class, 'masuk']);
 Route::post('/parkir/masuk', [ParkirController::class, 'post_masuk'])->name('parkir.masuk');
